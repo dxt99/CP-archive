@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+#define pb push_back
+#define mp make_pair
+#define fs first
+#define sd second
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pair<ll,ll>> vll;
+
+const int N = 1e6 + 3, Mod = 1e9 + 7;
+const int maxN=1e3+3;
+
+ll dp[maxN][maxN];
+ll ans[maxN][maxN];
+
+void count(){
+	for(int i=0;i<maxN;i++)dp[i][1]=1;
+	for(int i=0;i<maxN;i++)ans[i][1]=1;
+	for(int i=0;i<maxN;i++){
+		ans[0][i]=1;
+	}
+	for(int i=1;i<maxN;i++){
+		for(int j=1;j<maxN;j++){
+			if(j>i)dp[i][j]=0;
+			else dp[i][j]=ans[i-j][j]%Mod;;
+			ans[i][j]=ans[i][j-1]+dp[i][j];
+			ans[i][j]%=Mod;
+		}
+	}
+}
+
+void solve(){
+	ll n,p;
+	cin>>n>>p;
+	cout<<ans[n][p]<<endl;
+}
+ 
+int main(){
+	count();
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr); 
+	cout.tie(nullptr);
+	int t=1;
+	cin>>t;
+	for(int i=0;i<t;i++){
+		//cout<<"Case #"<<i+1<<": ";
+		solve();
+	}
+}
