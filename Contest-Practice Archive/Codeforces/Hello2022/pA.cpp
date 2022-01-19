@@ -17,7 +17,22 @@ const int N = 1e6 + 3, Mod = 1e9 + 7;
 const int maxN=1e3+3;
 
 void solve(){
-	
+	int n,x;
+	cin>>n>>x;
+	if((n+1)/2<x)cout<<-1<<endl;
+	else{
+		int k=0;
+		for(int i=0;i<n;i++){
+			for(int j=0;j<n;j++){
+				if(i==j&&i==(2*k)&&k<x){
+					cout<<"R";
+					k+=1;
+				}
+				else cout<<".";
+			}
+			cout<<endl;
+		}
+	}
 }
  
 int main(){
@@ -32,3 +47,4 @@ int main(){
 		solve();
 	}
 }
+

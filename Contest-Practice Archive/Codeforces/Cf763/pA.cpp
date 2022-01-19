@@ -16,8 +16,18 @@ typedef priority_queue <ll, vector<ll>, greater<ll>> minh;
 const int N = 1e6 + 3, Mod = 1e9 + 7;
 const int maxN=1e3+3;
 
+int n,m,x,y,p,q;
+
+int solve(int p, int x, int l){
+	if(x>=p)return x-p;
+	return p-x+2*(l-p);
+}
+
 void solve(){
-	
+	cin>>n>>m>>x>>y>>p>>q;
+	int ans1=solve(x,p,n);
+	int ans2=solve(y,q,m);
+	cout<<min(ans1,ans2)<<endl;
 }
  
 int main(){
@@ -32,3 +42,4 @@ int main(){
 		solve();
 	}
 }
+

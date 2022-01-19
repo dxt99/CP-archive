@@ -125,8 +125,8 @@ ll binser(ll l,ll r,ll val){
 	//printf(".%d",mid);
 	if(arr[mid]==val)return mid;
 	if(arr[mid]>val&&arr[mid-1]<val)return mid;
-	if(arr[mid]>val) return binser(l,mid-1,val);
-	if(arr[mid]<val) return binser(mid+1,r,val);
+	if(arr[mid]>val) return binser(l,mid-1);
+	if(arr[mid]<val) return binser(mid+1,r);
 }
 
 //fast C(N,K)

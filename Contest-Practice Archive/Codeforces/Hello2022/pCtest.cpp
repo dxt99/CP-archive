@@ -16,19 +16,18 @@ typedef priority_queue <ll, vector<ll>, greater<ll>> minh;
 const int N = 1e6 + 3, Mod = 1e9 + 7;
 const int maxN=1e3+3;
 
-void solve(){
-	
-}
  
-int main(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr); 
-	cout.tie(nullptr);
-	
-	int t=1;
-	cin>>t;
- 	for(int i=0;i<t;i++){
-		//cout<<"Case #"<<i+1<<": ";
-		solve();
+void solve(){
+	int n; cin>>n;
+	int arr[n+1];
+	for(int i=1;i<=n;i++)cin>>arr[i];
+	int key[n+1];
+	for(int i=0;i<n;i++){
+		cin>>key[i+1];
 	}
+	for(int i=1;i<=n;i++)cout<<arr[key[i]]<<" ";
+	cout<<endl;
+}
+int main(){
+	while(true)solve();
 }

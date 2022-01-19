@@ -11,13 +11,29 @@ typedef pair<ll,ll> pl;
 typedef vector<ll> vl;
 typedef vector<pair<ll,ll>> vll;
 typedef vector<pair<ll,pl>> vlll;
-typedef priority_queue <ll, vector<ll>, greater<ll>> minh;
+typedef priority_queue <pl, vector<pl>, greater<pl>> minh;
 
 const int N = 1e6 + 3, Mod = 1e9 + 7;
 const int maxN=1e3+3;
 
 void solve(){
-	
+	int n; cin>>n;
+	vll q;
+	for(int i=0;i<n;i++){
+		int x,y; cin>>x>>y;
+		q.pb(mp(x,y));
+	}
+	sort(q.begin(),q.end());
+	int it=0;
+	minh pq;
+	for(int i=0;i<n;i++){
+		while(it<q.size()&&q[it].fs<=i+1){
+			pq.push(mp(q[it].sd,q[it].fs));
+			it++;
+		}
+		cout<<pq.top().sd<<" "<<pq.top().fs<<" "<<i+1<<endl;
+		pq.pop();
+	}
 }
  
 int main(){
@@ -32,3 +48,4 @@ int main(){
 		solve();
 	}
 }
+
