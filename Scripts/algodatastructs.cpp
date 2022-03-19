@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef vector<int> vi;
+typedef vector<long long> vl;
 const int N=1e6+3, Mod=1e9+7;
 const int maxN=1e4+2;
 
