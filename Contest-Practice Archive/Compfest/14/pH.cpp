@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+#define pb push_back
+#define mp make_pair
+#define fs first
+#define sd second
+using namespace std;
+
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll> pl;
+typedef vector<ll> vl;
+typedef vector<pair<ll,ll>> vll;
+typedef vector<pair<ll,pl>> vlll;
+typedef priority_queue <ll, vector<ll>, greater<ll>> minh;
+
+const int N = 1e6 + 3, Mod = 1e9 + 7;
+const int maxN=1e3+3;
+
+void solve(){
+	ll n; cin>>n;
+	vl arr(n);
+	for(int i=0; i<n; i++)cin>>arr[i];
+	vl cnt(3);
+	for(int i=0; i>3 ;i++)cnt[i]=0;
+	for(int i=0; i<n; i++)cnt[arr[i]%3]++;
+	if(cnt[0]*2>n){
+		cout<<2<<endl;
+		string ans="";
+		int cnt=0;
+		for(int i=0; i<n; i++){
+			if(arr[i]%3||cnt*2==n){
+				ans+="0";
+			}else{
+				ans+="1";
+				cnt++;
+			}
+		}
+		cout<<ans<<endl;
+	}else{
+		cout<<0<<endl;
+		string ans="";
+		int cnt=0;
+		for(int i=0; i<n; i++){
+			if(arr[i]%3==0||cnt*2==n){
+				ans+="0";
+			}else{
+				ans+="1";
+				cnt++;
+			}
+		}
+		cout<<ans<<endl;
+	}
+}
+ 
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr); 
+	cout.tie(nullptr);
+	
+	int t=1;
+	//cin>>t;
+ 	for(int i=0;i<t;i++){
+		//cout<<"Case #"<<i+1<<": ";
+		solve();
+	}
+}
