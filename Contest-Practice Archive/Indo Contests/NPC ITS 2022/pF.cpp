@@ -17,7 +17,17 @@ const int N = 1e6 + 3, Mod = 1e9 + 7;
 const int maxN=1e3+3;
 
 void solve(){
-	
+	ll n,k,a,b,t; 
+	cin>>n>>k>>a>>b>>t;
+	n%=Mod;
+	t%=(Mod-1);
+	for(int i=0; i<b ;i++){
+		ll time = t-i;
+		ll maxi = a/b;
+		for(int j=0; j<maxi; j++){
+			
+		}
+	}
 }
  
 int main(){
