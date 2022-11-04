@@ -14,18 +14,31 @@ typedef priority_queue <ll, vector<ll>, greater<ll>> pqmin;
 const int INF = 2e9;
 const int MOD = 1e9+7;
 
+pll fib (ll n) {
+    if (n == 0)
+        return {0, 1};
+
+    pll p = fib(n >> 1);
+    ll c = (p.first * (2 * p.second - p.first))%MOD;
+    ll d = ((p.first * p.first)%MOD + (p.second * p.second)%MOD)%MOD;;
+    if (n & 1)
+        return {d, c + d};
+    else
+        return {c, d};
+}
 
 
 void solve(){
     ll n;
-    scanf("%d",&n);
-    if(n==2){
-        printf("2\n");
+    cin>>n;
+    ll ans=0;
+    if(n==1){
+        ans=1;
     }else{
-        ll k=1ll*(n-1)*(n-1)+1;
-        k%=MOD;
-        printf("%d\n",k);
+        ans=fib(n+1).fs;
+        ans=(ans*ans)%MOD;
     }
+    cout<<ans<<endl;
 }
 
 int main()
@@ -34,8 +47,7 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    int t;
-    cin>>t;
+    int t=1;
 
     while(t--){
         solve();
