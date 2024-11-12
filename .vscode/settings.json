@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.sage": "python",
+        "chrono": "cpp",
+        "span": "cpp",
+        "iostream": "cpp"
+    }
+}
